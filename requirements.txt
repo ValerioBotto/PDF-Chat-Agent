@@ -1,5 +1,9 @@
 spacy-layout==0.0.12
 spacy==3.8.4
 langchain==0.3.26
+langchain-together==0.3.0
+together==1.5.17
+langgraph==0.4.8
 sentence-transformers==4.1.0
 faiss-cpu==1.11.0
+python-dotenv==1.1.0
