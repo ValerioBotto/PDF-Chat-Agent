@@ -1,12 +1,11 @@
 import os
 from dotenv import load_dotenv
 from langchain.agents import Tool
-from langchain_community.tools.brave_search import BraveSearchWrapper
-from prompt_template import WEB_SUMMARY_PROMPT
+from langchain_community.utilities.brave_search import BraveSearchWrapper
+from agent.prompt_template import WEB_SUMMARY_PROMPT
 
 load_dotenv()
 
-# Tool Brave Search: accesso alla ricerca web tramite Brave API
 def get_brave_tool(llm):
     brave_search = BraveSearchWrapper.from_api_key(
         api_key=os.getenv("BRAVE_API_KEY"),
@@ -15,8 +14,12 @@ def get_brave_tool(llm):
     )
 
     def brave_search_and_summarize(query: str) -> str:
-        results = brave_search.run(query)
-        prompt = WEB_SUMMARY_PROMPT
+        try:
+            results = brave_search.run(query)
+        except Exception as e:
+            return f"Errore durante la ricerca web: {e}"
+
+        prompt = WEB_SUMMARY_PROMPT.format(content=results)
         return llm.invoke(prompt)
 
     return Tool(
