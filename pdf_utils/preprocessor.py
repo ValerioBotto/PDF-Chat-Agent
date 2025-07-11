@@ -26,12 +26,12 @@ def split_sections(text: str) -> dict:
     for line in text.split("\n"):
         line_stripped = line.strip()
         if is_likely_section_title(line_stripped):
-            current_section = line_stripped.upper()[:80]  # Limita lunghezza e uniforma
+            current_section = line_stripped.upper()[:80]  
             sections[current_section] = ""
         else:
             sections[current_section] += line + "\n"
 
-    # Fallback se c'è solo una sezione e poco testo
+    #Fallback se c'è solo una sezione e poco testo
     total_text = "\n".join(s for s in sections.values())
     if len(sections) <= 1 or len(total_text.strip()) < 300:
         return {"PDF": text.strip()}

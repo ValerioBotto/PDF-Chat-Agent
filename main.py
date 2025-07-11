@@ -18,7 +18,7 @@ if uploaded_file:
             # Split in sezioni
             sections = split_sections(text)
 
-            # DEBUG: mostra sezioni trovate (puoi commentare se non ti serve)
+            #DEBUG: mostra sezioni trovate 
             st.write(f"Numero sezioni individuate: {len(sections)}")
             for title, content in sections.items():
                 st.write(f"🟦 {title} — {len(content.strip())} caratteri")
@@ -51,3 +51,4 @@ if "agent" in st.session_state:
     for role, message in st.session_state.chat_history:
         with st.chat_message(role):
             st.markdown(message)
+

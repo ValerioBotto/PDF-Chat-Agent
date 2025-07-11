@@ -9,7 +9,7 @@ def load_text_from_pdf(uploaded_file) -> str:
     try:
         # Passa direttamente i bytes
         raw_bytes = uploaded_file.getvalue()
-        doc = layout(raw_bytes)  # layout si aspetta bytes, non BytesIO
+        doc = layout(raw_bytes)  
         text = doc.text.strip()
         if not text:
             raise ValueError("Il testo estratto dal PDF è vuoto.")

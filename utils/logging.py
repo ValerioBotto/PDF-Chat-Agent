@@ -5,7 +5,7 @@ import logging
 #e quali risultati restituisce
 
 logging.basicConfig(
-    level=logging.INFO,  # Puoi usare DEBUG per più verbosità
+    level=logging.INFO,  
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 

@@ -5,7 +5,7 @@ from langgraph.prebuilt import create_react_agent
 from langchain_core.messages import HumanMessage
 from langchain_together import ChatTogether
 from dotenv import load_dotenv
-from agent.tools import get_all_tools  # importa i tool definiti separatamente
+from agent.tools import get_all_tools  
 import os
 
 load_dotenv()
