@@ -1,0 +1,13 @@
+faiss-cpu
+langchain
+langchain-community
+langchain-together
+langgraph
+python-dotenv
+sentence-transformers
+spacy
+spacy-layout
+streamlit
+together
+brave-search
+neo4j
